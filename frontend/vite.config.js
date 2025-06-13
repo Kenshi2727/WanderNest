@@ -6,8 +6,11 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), VitePWA({
+    strategies: 'injectManifest',
+    srcDir: 'src',
+    filename: 'sw.js',
     registerType: 'autoUpdate',
-    injectRegister: 'auto',
+    injectRegister: false,
 
     pwaAssets: {
       disabled: false,
@@ -15,16 +18,14 @@ export default defineConfig({
     },
 
     manifest: {
-      name: 'Travel Safari',
+      name: ' Travel Safari',
       short_name: ' Travel Safari',
-      description: 'Travel Safari',
+      description: 'An AI Travel Planner',
       theme_color: '#ffffff',
     },
 
-    workbox: {
+    injectManifest: {
       globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
-      cleanupOutdatedCaches: true,
-      clientsClaim: true,
     },
 
     devOptions: {
