@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from './ui/Carousel'
 import SearchBar from './ui/SearchBar'
+import Places from './ui/Places'
 import Testimonials from './ui/Testimonials'
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
 
             <Carousel />
             <SearchBar />
+            <Places />
             <Testimonials />
         </div>
     )

@@ -25,7 +25,7 @@ function Header() {
                                 <span className="badge">New</span>
                             </a>
                         </li>
-                        <li><a href="/settings">Settings</a></li>
+                        <li><a href="/themes">Choose Theme</a></li>
                         <li><a href='#'>Logout</a></li>
                     </ul>
                 </div>

@@ -1,15 +1,8 @@
 import React from 'react'
 import { THEMES } from "../constants";
 import { useThemeStore } from "../store/useThemeStore";
-import { Send } from "lucide-react";
 
-const PREVIEW_MESSAGES = [
-    { id: 1, content: "Hey! How's it going?", isSent: false },
-    { id: 2, content: "I'm doing great! Just working on some new features.", isSent: true },
-];
-
-
-function Settings() {
+function Themes() {
     const { theme, setTheme } = useThemeStore();
 
     return (
@@ -49,4 +42,4 @@ function Settings() {
     );
 }
 
-export default Settings
+export default Themes;

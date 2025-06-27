@@ -7,8 +7,8 @@ import Footer from './components/Footer';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/Home';
 import Profile from './components/Profile'
-import Settings from './components/Settings';
 import { useThemeStore } from './store/useThemeStore';
+import Themes from './components/Themes';
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <Profile />
       },
       {
-        path: '/settings',
-        element: <Settings />
+        path: '/themes',
+        element: <Themes />
       }
     ]
   }
