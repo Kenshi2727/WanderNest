@@ -6,7 +6,7 @@ function Themes() {
     const { theme, setTheme } = useThemeStore();
 
     return (
-        <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
+        <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl overflow-y-scroll no-scrollbar">
             <div className="space-y-6">
                 <div className="flex flex-col gap-1">
                     <h2 className="text-lg font-semibold">Theme</h2>

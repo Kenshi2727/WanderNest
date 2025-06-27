@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Profile from './components/Profile'
 import { useThemeStore } from './store/useThemeStore';
 import Themes from './components/Themes';
+import Category from './components/Category';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/themes',
         element: <Themes />
+      },
+      {
+        path: '/category/:id',
+        element: <Category />
       }
     ]
   }

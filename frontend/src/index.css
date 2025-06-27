@@ -1,4 +1,54 @@
 @import "tailwindcss";
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* 🍥 Dropdown container (pac-container) */
+.pac-container {
+  z-index: 9999 !important;
+  border-radius: 10rem; /* more rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--b1, #fff); /* DaisyUI base background */
+  padding: 0.5rem 0;
+  border: 1px solid var(--bc, #e5e7eb); /* base-content (border) */
+}
+
+/* 🌼 Each autocomplete item (pac-item) */
+.pac-item {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--bc, #1f2937); /* base-content (text) */
+  background-color: var(--b1, #fff); /* base background */
+  border-bottom: 1px solid var(--b2, #f3f4f6); /* light border */
+}
+
+/* 🩵 Hover effect mimics DaisyUI */
+.pac-item:hover {
+  background-color: var(--p, #3b82f6); /* primary color */
+  color: var(--pc, #ffffff); /* primary-content (text on primary) */
+  cursor: pointer;
+  border-radius: 0.75rem;
+}
+
+/* Optional: Smaller Google logo */
+.pac-logo {
+  padding: 4px;
+  opacity: 0.5;
+}
+
+.pac-item {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+}
 @plugin "daisyui" {
   themes: all;
 }
+
+

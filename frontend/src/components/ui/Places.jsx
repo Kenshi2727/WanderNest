@@ -1,6 +1,7 @@
 import React from 'react'
 import Place from './Place'
 import { cardData } from '../../constants/cardData'
+import { Link } from 'react-router-dom'
 
 function Places() {
     return (
@@ -10,13 +11,15 @@ function Places() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-y-10 my-10">
                 {cardData.map((place) => (
-                    <Place
-                        key={place.id}
-                        title={place.title}
-                        description={place.description}
-                        imageUrl={place.imageUrl}
-                        badges={place.badges}
-                    />
+                    <Link to={`/category/${place.id}`}>
+                        <Place
+                            key={place.id}
+                            title={place.title}
+                            description={place.description}
+                            imageUrl={place.imageUrl}
+                            badges={place.badges}
+                        />
+                    </Link>
                 ))}
             </div>
 
