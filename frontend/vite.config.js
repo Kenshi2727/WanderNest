@@ -30,6 +30,34 @@ export default defineConfig({
       short_name: ' Travel Safari',
       description: 'An AI Travel Planner',
       theme_color: '#ffffff',
+      icons: [
+        {
+          "src": "/maskable_icon.png",
+          "sizes": "196x196",
+          "type": "image/png",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/pwa-256x256.png",
+          "sizes": "256x256",
+          "type": "image/png"
+        },
+        {
+          "src": "/pwa-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "src": "/pwa-384x384.png",
+          "sizes": "384X384",
+          "type": "image/png"
+        }
+      ]
     },
 
     injectManifest: {

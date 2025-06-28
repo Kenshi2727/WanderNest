@@ -2,8 +2,36 @@ import React from 'react'
 import Autocomplete from "react-google-autocomplete";
 import { Download } from "lucide-react";
 import FaviconIcon from '../assets/favicon.svg?react';
+import { DefferedPromptContext } from '../context/DefferedPromptContext';
+import { useContext, useEffect } from 'react';
 
 function Header() {
+    const { deferredPrompt, setDeferredPrompt } = useContext(DefferedPromptContext);
+
+    useEffect(() => {
+        const handler = (e) => {
+            e.preventDefault();
+            setDeferredPrompt(e);
+        }
+        window.addEventListener('beforeinstallprompt', handler);
+
+        window.addEventListener('appinstalled', () => {
+            console.log('App installed successfully!');
+        });
+
+    }, [])
+
+    const handleInstall = async () => {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            console.log('User accepted the installation prompt');
+        } else {
+            console.log('User dismissed the installation prompt');
+        }
+        // setDeferredPrompt(null);// Clear the prompt after use
+    }
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="flex-1">
@@ -23,9 +51,11 @@ function Header() {
                     className="input input-bordered w-24 md:w-auto focus:outline-none"
                 />
 
-                <div className='flex justify-center items-center cursor-pointer rounded-full bg-base-200 hover:bg-base-300 active:bg-base-300 size-full p-2'>
+                <button
+                    onClick={handleInstall}
+                    className='flex justify-center items-center cursor-pointer rounded-full bg-base-200 hover:bg-base-300 active:bg-base-300 size-full p-2'>
                     <Download />
-                </div>
+                </button>
 
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

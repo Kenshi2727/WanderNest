@@ -10,6 +10,8 @@ import Profile from './components/Profile'
 import { useThemeStore } from './store/useThemeStore';
 import Themes from './components/Themes';
 import Category from './components/Category';
+import SignUp from './components/auth/SignUp';
+import { DefferedPromptProvider } from './context/DefferedPromptContext';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/category/:id',
         element: <Category />
+      },
+      {
+        path: '/auth/sign-up',
+        element: <SignUp />
       }
     ]
   }
@@ -53,6 +59,8 @@ function Root() {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Root />
+    <DefferedPromptProvider>
+      <Root />
+    </DefferedPromptProvider>
   </StrictMode>,
 )
