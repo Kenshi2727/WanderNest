@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 
 
-function SignUp() {
+function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
         <div className='min-h-screen grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'>
             <div className='flex justify-center items-center m-4'>
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-                    <legend className="fieldset-legend">SignUp</legend>
+                    <legend className="fieldset-legend">Login</legend>
 
                     <label className="label">Email</label>
                     <input type="email" className="input validator" placeholder="Email" />
@@ -52,4 +52,4 @@ function SignUp() {
     )
 }
 
-export default SignUp
+export default SignIn

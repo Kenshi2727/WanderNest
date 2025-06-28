@@ -6,7 +6,7 @@ function Themes() {
     const { theme, setTheme } = useThemeStore();
 
     return (
-        <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl overflow-y-scroll no-scrollbar">
+        <div className="flex flex-col gap-4 mb-10 min-h-screen container mx-auto px-4 pt-20 max-w-5xl overflow-y-scroll no-scrollbar">
             <div className="space-y-6">
                 <div className="flex flex-col gap-1">
                     <h2 className="text-lg font-semibold">Theme</h2>
@@ -38,6 +38,31 @@ function Themes() {
                     ))}
                 </div>
             </div>
+
+
+
+            {/*desktop mockup */}
+            <div className="border border-base-300 w-full shadow-lg rounded-lg">
+                {/* Toolbar */}
+                <div className="mockup-browser-toolbar bg-base-200 flex items-center space-x-2 px-4 py-2 rounded-t-lg">
+                    <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+                    <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                    <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                    <div className="input input-bordered input-sm flex-1 ml-2">
+                        https://wandernest.com
+                    </div>
+                </div>
+
+                {/* Content */}
+                <div className="h-80 border-t border-base-300 bg-base-100 p-6 flex flex-col justify-center items-center space-y-4 rounded-b-lg">
+                    <h2 className="text-2xl font-semibold text-center">Welcome to WanderNest</h2>
+                    <p className="text-base-content text-center max-w-md">
+                        Explore your next adventure with smart travel planning at your fingertips.
+                    </p>
+                    <button className="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+
         </div>
     );
 }
