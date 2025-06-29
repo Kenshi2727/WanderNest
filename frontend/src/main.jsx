@@ -13,6 +13,7 @@ import Category from './components/Category';
 import SignUp from './components/auth/SignUp';
 import { DefferedPromptProvider } from './context/DefferedPromptContext';
 import SignIn from './components/auth/SignIn';
+import LocationPage from './components/LocationPage';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/category/:id',
         element: <Category />
+      },
+      {
+        path: '/category/:id/:loactionId',
+        element: <LocationPage />
       },
       {
         path: '/auth/sign-up',

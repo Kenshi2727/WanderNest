@@ -8,6 +8,10 @@
     scrollbar-width: none;
   }
 
+  .no-depth {
+  --depth: 0 !important;
+}
+
   /* 🍥 Dropdown container (pac-container) */
 .pac-container {
   z-index: 9999 !important;

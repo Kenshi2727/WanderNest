@@ -35,7 +35,7 @@ function Header() {
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl rounded-lg" href='/'>
+                <a className="btn btn-ghost text-xl no-depth rounded-lg border-transparent bg-transparent" href='/'>
                     {/* <img src="favicon.svg" className='size-full' /> */}
                     <FaviconIcon className='size-full fill-current text-base-content' />
                 </a>
