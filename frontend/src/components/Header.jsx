@@ -35,10 +35,12 @@ function Header() {
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl no-depth rounded-lg border-transparent bg-transparent" href='/'>
-                    {/* <img src="favicon.svg" className='size-full' /> */}
-                    <FaviconIcon className='size-full fill-current text-base-content' />
-                </a>
+                <div className="tooltip tooltip-bottom" data-tip="Home">
+                    <a className="btn btn-ghost text-xl no-depth rounded-lg border-transparent bg-transparent" href='/'>
+                        {/* <img src="favicon.svg" className='size-full' /> */}
+                        <FaviconIcon className='size-full fill-current text-base-content' />
+                    </a>
+                </div>
             </div>
             <div className="flex gap-4">
                 {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto focus:outline-none" /> */}
@@ -51,18 +53,22 @@ function Header() {
                     className="input input-bordered w-24 md:w-auto focus:outline-none"
                 />
 
-                <button
-                    onClick={handleInstall}
-                    className='flex justify-center items-center cursor-pointer rounded-full bg-base-200 hover:bg-base-300 active:bg-base-300 size-full p-2'>
-                    <Download />
-                </button>
+                <div className="tooltip tooltip-bottom" data-tip="Install App">
+                    <button
+                        onClick={handleInstall}
+                        className='flex justify-center items-center cursor-pointer rounded-full bg-base-200 hover:bg-base-300 active:bg-base-300 size-full p-2'>
+                        <Download />
+                    </button>
+                </div>
 
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <div className="tooltip tooltip-bottom" data-tip="Profile">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    alt="Tailwind CSS Navbar component"
+                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            </div>
                         </div>
                     </div>
                     <ul

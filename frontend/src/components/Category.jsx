@@ -26,7 +26,7 @@ function Category() {
 
                     {list.data.map((item, index) => (
                         <Link to={`/category/${id}/${item.id}`}>
-                            <CategoryListItem item={item} index={index} />
+                            <CategoryListItem id={id} item={item} index={index} />
                         </Link>
                     ))}
                 </ul>
