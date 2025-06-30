@@ -14,6 +14,7 @@ import SignUp from './components/auth/SignUp';
 import { DefferedPromptProvider } from './context/DefferedPromptContext';
 import SignIn from './components/auth/SignIn';
 import LocationPage from './components/LocationPage';
+import Navigator from './components/navigation/Navigator';
 
 const router = createBrowserRouter([
   {
@@ -25,19 +26,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/profile',
-        element: <Profile />
+        element: [<Navigator />, <Profile />]
       },
       {
         path: '/themes',
-        element: <Themes />
+        element: [<Navigator />, <Themes />]
       },
       {
         path: '/category/:id',
-        element: <Category />
+        element: [<Navigator />, <Category />]
       },
       {
         path: '/category/:id/:loactionId',
-        element: <LocationPage />
+        element: [<Navigator />, <LocationPage />]
       },
       {
         path: '/auth/sign-up',

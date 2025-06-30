@@ -13,9 +13,9 @@ function CategoryListItem({ item, index }) {
                 <div className="text-xs uppercase font-semibold opacity-60">{item.description}</div>
             </div>
 
-            <div className="tooltip tooltip-secondary" data-tip="Add to favorites">
-                <button onClick={() => setLiked(!liked)} className="btn btn-square btn-ghost">
-                    <Link to="#">
+            <div className="tooltip tooltip-secondary h-fit" data-tip="Add to favorites">
+                <Link to="#">
+                    <button onClick={() => setLiked(!liked)} className="btn btn-square btn-ghost">
                         {
                             (!liked) ?
                                 <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg>
@@ -32,8 +32,8 @@ function CategoryListItem({ item, index }) {
                                 6.86-8.55 11.54L12 21.35z" />
                                 </svg>
                         }
-                    </Link>
-                </button>
+                    </button>
+                </Link>
             </div>
         </li>
     )
