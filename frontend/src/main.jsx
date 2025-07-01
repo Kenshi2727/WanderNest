@@ -73,5 +73,5 @@ createRoot(document.getElementById('root')).render(
     <DefferedPromptProvider>
       <Root />
     </DefferedPromptProvider>
-  </StrictMode>,
+  </StrictMode >,
 )

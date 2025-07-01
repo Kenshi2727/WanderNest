@@ -2,10 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function CategoryListItem({ item, index }) {
+function CategoryListItem({ item }) {
     const [liked, setLiked] = useState(false);
     return (
-        <li key={index} className="list-row hover:bg-base-200 active:bg-base-200 cursor-pointer">
+        <li className="list-row hover:bg-base-200 active:bg-base-200 cursor-pointer">
             <div className="text-4xl font-thin opacity-30 tabular-nums">{item.id}</div>
             <div><img className="size-20 rounded-box" src={item.imageUrl} /></div>
             <div className="list-col-grow">

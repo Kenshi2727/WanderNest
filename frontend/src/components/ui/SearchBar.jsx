@@ -33,9 +33,9 @@ function SearchBar() {
                         </Link>
                     </div>
 
-                    <p className='text-xs sm:text-sm md:text-base text-base-content text-center'>
+                    <div className='text-xs sm:text-sm md:text-base text-base-content text-center'>
                         Not signed in? <Link to="/auth/sign-up"><span><div className="tooltip"><div className="tooltip-content"> <div className="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">Step Out!</div></div><span className='underline underline-offset-2'>Create</span></div></span></Link> an account to get started!
-                    </p>
+                    </div>
                 </div>
 
             </div>

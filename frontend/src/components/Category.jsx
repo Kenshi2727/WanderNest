@@ -25,8 +25,8 @@ function Category() {
                     <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">{title}</li>
 
                     {list.data.map((item, index) => (
-                        <Link to={`/category/${id}/${item.id}`}>
-                            <CategoryListItem id={id} item={item} index={index} />
+                        <Link key={index} to={`/category/${id}/${item.id}`}>
+                            <CategoryListItem id={id} item={item} />
                         </Link>
                     ))}
                 </ul>

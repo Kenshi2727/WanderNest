@@ -11,7 +11,7 @@ function Places() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-y-10 my-10">
                 {cardData.map((place) => (
-                    <Link to={`/category/${place.id}`}>
+                    <Link key={place.id} to={`/category/${place.id}`}>
                         <Place
                             key={place.id}
                             title={place.title}
