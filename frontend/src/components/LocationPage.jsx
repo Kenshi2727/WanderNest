@@ -59,14 +59,15 @@ function LocationPage() {
                     Content
                 </div>
 
-                <div className='grid grid-rows-2'>
-                    <div className='size-full'>
+                <div className='grid grid-rows-2 p-2 gap-2'>
+                    {/* overflow-hidden to make the rounded edges appear on map components */}
+                    <div className='size-full rounded-xl overflow-hidden shadow-lg'>
                         <Map3DComponent />
                         {/* <gmp-map-3d mode="hybrid" center="37.7921719,-122.4583893" range="2000" tilt="75" heading="330"></gmp-map-3d>
                     <script async src={`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&v=beta&libraries=maps3d,marker`}></script> */}
                     </div>
 
-                    <div className='size-full'>
+                    <div className='size-full rounded-xl overflow-hidden shadow-lg'>
                         <Map2DComponent />
                     </div>
                 </div>

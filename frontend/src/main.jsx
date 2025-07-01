@@ -62,8 +62,10 @@ function Root() {
   return (
     <div data-theme={theme}>
       <Header />
-      <RouterProvider router={router} />
-      <Footer />
+      <div className="pt-16">
+        <RouterProvider router={router} />
+        <Footer />
+      </div>
     </div>
   );
 }

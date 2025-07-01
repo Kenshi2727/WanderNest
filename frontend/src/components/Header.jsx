@@ -33,7 +33,7 @@ function Header() {
     }
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar fixed top-0 left-0 z-50 h-16 backdrop-blur-md bg-base-100/60 shadow-sm">
             <div className="flex-1">
                 <div className="tooltip tooltip-bottom" data-tip="Home">
                     <a className="btn btn-ghost text-xl no-depth rounded-lg border-transparent bg-transparent" href='/'>
