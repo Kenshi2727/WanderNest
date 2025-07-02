@@ -1,9 +1,24 @@
 import React from 'react'
 import { THEMES } from "../constants";
 import { useThemeStore } from "../store/useThemeStore";
+import { useNavStore } from "../store/useNavStore";
+import { useEffect } from "react";
 
 function Themes() {
     const { theme, setTheme } = useThemeStore();
+    const { navList, setNavList } = useNavStore();
+
+    useEffect(() => {
+        setNavList([
+            {
+                route: "/",
+                label: "Home",
+            },
+            {
+                route: `/themes`,
+                label: "Themes",
+            }]);
+    }, []);
 
     return (
         <div className="flex flex-col gap-4 mb-10 min-h-screen container mx-auto px-4 pt-20 max-w-5xl overflow-y-scroll no-scrollbar">

@@ -3,7 +3,7 @@ import MessageInput from './MessageInput'
 
 function AgentChat() {
     return (
-        <div className='flex flex-col justify-between h-full p-4 bg-base-200 rounded-lg shadow-md'>
+        <div className='flex flex-col justify-between h-fit p-4 bg-base-200 rounded-lg shadow-md'>
             <div className='chat-container overflow-y-scroll'>
                 <div className="chat chat-start">
                     <div className="chat-image avatar">

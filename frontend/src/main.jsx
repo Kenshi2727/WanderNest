@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         element: [<Navigator />, <Category />]
       },
       {
-        path: '/category/:id/:loactionId',
+        path: '/category/:id/:locationId',
         element: [<Navigator />, <LocationPage />]
       },
       {
@@ -71,9 +71,7 @@ function Root() {
 }
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <DefferedPromptProvider>
-      <Root />
-    </DefferedPromptProvider>
-  </StrictMode >,
+  <DefferedPromptProvider>
+    <Root />
+  </DefferedPromptProvider>
 )

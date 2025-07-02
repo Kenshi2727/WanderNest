@@ -1,10 +1,13 @@
 import { React, useState } from 'react'
 import { Camera, Mail, User } from "lucide-react";
+import { useNavStore } from '../store/useNavStore';
+import { useEffect } from 'react';
 // import { useAuthStore } from "../store/useAuthStore";
 
 function Profile() {
     // const { authUser, isUpdatingProfile, updateProfile } = useAuthStore();
     const [selectedImg, setSelectedImg] = useState(null);
+    const { navList, setNavList } = useNavStore();
 
     const handleImageUpload = async (e) => {
         const file = e.target.files[0];
@@ -20,6 +23,18 @@ function Profile() {
             // await updateProfile({ profilePic: base64Image });
         };
     };
+
+    useEffect(() => {
+        setNavList([
+            {
+                route: "/",
+                label: "Home",
+            },
+            {
+                route: `/profile`,
+                label: "Profile",
+            }]);
+    }, []);
 
     return (
         <div className="min-h-screen pt-20">

@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { cardData } from '../constants/cardData'
 import { Link, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { categoryData } from '../constants/categoryData'
 import CategoryListItem from './ui/CategoryListItem'
 import AgentChat from './ui/AgentChat'
+import { useNavStore } from '../store/useNavStore'
 
 function Category() {
     const { id } = useParams();
+
+    const { navList, setNavList } = useNavStore();
 
     /*=== will not work as useParams will return type route parameter */
     const category = cardData.find(item => item.id == id);
@@ -15,7 +18,17 @@ function Category() {
     // console.log("category--->", category);
     const list = categoryData.find(item => item.id == id);
 
-
+    useEffect(() => {
+        setNavList([
+            {
+                route: "/",
+                label: "Home",
+            },
+            {
+                route: `/category/${id}`,
+                label: title,
+            }]);
+    }, []);
 
     return (
         <div className='min-h-screen grid grid-rows-2 md:grid-rows-1 md:grid-cols-2'>

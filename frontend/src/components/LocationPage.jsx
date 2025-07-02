@@ -3,9 +3,37 @@ import Map2DComponent from './maps/Map2DComponent'
 import Map3DComponent from './maps/Map3DComponent'
 import { APIProvider } from '@vis.gl/react-google-maps'
 import { useEffect, useState } from 'react';
+import { useNavStore } from '../store/useNavStore';
+import { useParams } from 'react-router-dom';
+import { categoryData } from '../constants/categoryData';
+import { cardData } from '../constants/cardData';
+import ErrorBoundary from './handler/ErrorBoundary';
 
 function LocationPage() {
     const [apiReady, setApiReady] = useState(false);
+    const { id, locationId } = useParams();
+    const { setNavList } = useNavStore();
+
+    // console.log("data--->", id, locationId);
+
+    useEffect(() => {
+        const data = (categoryData.find((item) => item.id == id)).data;
+        console.log("data--->", data);
+
+        setNavList([
+            {
+                route: "/",
+                label: "Home",
+            },
+            {
+                route: `/category/${id}`,
+                label: cardData.find((item) => item.id === parseInt(id)).title || 'Category',
+            },
+            {
+                route: `/category/${id}/${locationId}`,
+                label: data.find((item) => item.id === locationId).name || 'Category',
+            }]);
+    }, [id, locationId]);
 
     useEffect(() => {
         // Clean up previous Google Maps API scripts
@@ -25,11 +53,11 @@ function LocationPage() {
 
         /*
         Uses callback=initMaps to notify us when API is ready
-
+    
         Callback Setup:
-
+    
         window.initMaps = () => setApiReady(true) creates a global callback
-
+    
         Google Maps will call this function when it's fully loaded
         */
 
@@ -49,30 +77,32 @@ function LocationPage() {
     );
 
     return (
-        <APIProvider
-            apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
-            version="beta"
-            libraries={['maps3d', 'marker']}
-        >
-            <div className='min-h-screen grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'>
-                <div>
-                    Content
-                </div>
+        <ErrorBoundary >
+            <APIProvider
+                apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+                version="beta"
+                libraries={['maps3d', 'marker']}
+            >
+                <div className='min-h-screen grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'>
+                    <div>
+                        Content
+                    </div>
 
-                <div className='grid grid-rows-2 p-2 gap-2'>
-                    {/* overflow-hidden to make the rounded edges appear on map components */}
-                    <div className='size-full rounded-xl overflow-hidden shadow-lg'>
-                        <Map3DComponent />
-                        {/* <gmp-map-3d mode="hybrid" center="37.7921719,-122.4583893" range="2000" tilt="75" heading="330"></gmp-map-3d>
+                    <div className='grid grid-rows-2 p-2 gap-2'>
+                        {/* overflow-hidden to make the rounded edges appear on map components */}
+                        <div className='size-full rounded-xl overflow-hidden shadow-lg'>
+                            <Map3DComponent />
+                            {/* <gmp-map-3d mode="hybrid" center="37.7921719,-122.4583893" range="2000" tilt="75" heading="330"></gmp-map-3d>
                     <script async src={`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&v=beta&libraries=maps3d,marker`}></script> */}
-                    </div>
+                        </div>
 
-                    <div className='size-full rounded-xl overflow-hidden shadow-lg'>
-                        <Map2DComponent />
+                        <div className='size-full rounded-xl overflow-hidden shadow-lg'>
+                            <Map2DComponent />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </APIProvider>
+            </APIProvider>
+        </ErrorBoundary>
     )
 }
 

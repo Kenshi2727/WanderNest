@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function CategoryListItem({ item }) {
     const [liked, setLiked] = useState(false);
+
     return (
         <li className="list-row hover:bg-base-200 active:bg-base-200 cursor-pointer">
             <div className="text-4xl font-thin opacity-30 tabular-nums">{item.id}</div>
@@ -13,7 +14,7 @@ function CategoryListItem({ item }) {
                 <div className="text-xs uppercase font-semibold opacity-60">{item.description}</div>
             </div>
 
-            <div className="tooltip tooltip-secondary h-fit" data-tip="Add to favorites">
+            <div className={`tooltip ${(liked) ? 'tooltip-error' : 'tooltip-secondary'} h-fit`} data-tip={(liked) ? "Remove from favourites" : "Add to favorites"}>
                 <Link to="#">
                     <button onClick={() => setLiked(!liked)} className="btn btn-square btn-ghost">
                         {
