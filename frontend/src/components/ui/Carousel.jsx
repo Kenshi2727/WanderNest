@@ -34,6 +34,7 @@ function Carousel() {
                             src={`slide${num}.jpg`}
                             alt={`Slide ${num}`}
                             className="w-full rounded-xl h-122 object-cover"
+                            loading='lazy'
                         />
                     </div>
                 ))}

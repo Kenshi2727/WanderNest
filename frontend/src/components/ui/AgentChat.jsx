@@ -11,6 +11,7 @@ function AgentChat() {
                             <img
                                 alt="Tailwind CSS chat bubble component"
                                 src="https://img.daisyui.com/images/profile/demo/kenobee@192.webp"
+                                loading='lazy'
                             />
                         </div>
                     </div>
@@ -27,6 +28,7 @@ function AgentChat() {
                             <img
                                 alt="Tailwind CSS chat bubble component"
                                 src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp"
+                                loading='lazy'
                             />
                         </div>
                     </div>

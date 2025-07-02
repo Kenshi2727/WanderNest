@@ -46,7 +46,7 @@ function SignUp() {
                 </fieldset>
             </div>
             <div className='size-full'>
-                <img src="/sign-in.png" className="bg-cover h-full" alt="sign-in-photo" />
+                <img src="/sign-in.png" loading='lazy' className="bg-cover h-full" alt="sign-in-photo" />
             </div>
         </div>
     )

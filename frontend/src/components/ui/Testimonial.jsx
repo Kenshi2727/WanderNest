@@ -8,6 +8,7 @@ function Testimonial({ name, description, imageUrl }) {
                     className="w-full h-full object-cover"
                     src={imageUrl}
                     alt="testimonial"
+                    loading='lazy'
                 />
             </figure>
             <div className="card-body w-fit">

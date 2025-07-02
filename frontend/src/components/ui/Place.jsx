@@ -7,6 +7,7 @@ function Place({ title, description, imageUrl, badges }) {
                 <img
                     className="h-48 w-full object-cover"
                     src={imageUrl}
+                    loading='lazy'
                     alt="places" />
             </figure>
             <div className="card-body">
