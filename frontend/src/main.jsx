@@ -15,6 +15,25 @@ import { DefferedPromptProvider } from './context/DefferedPromptContext';
 import SignIn from './components/auth/SignIn';
 import LocationPage from './components/LocationPage';
 import Navigator from './components/navigation/Navigator';
+import Lenis from '@studio-freight/lenis';
+
+// Initialize Lenis globally
+const lenis = new Lenis({
+  lerp: 0.1,
+  smoothWheel: true,
+  smoothTouch: true,
+  anchors: true,
+});
+
+// Animation loop
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// attach Lenis to the global window object for ScrollToTop Component
+window.lenis = lenis;
 
 const router = createBrowserRouter([
   {
@@ -62,7 +81,7 @@ function Root() {
   return (
     <div data-theme={theme}>
       <Header />
-      <div className="pt-16">
+      <div id="top" className="pt-16">
         <RouterProvider router={router} />
         <Footer />
       </div>

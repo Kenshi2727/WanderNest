@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { categoryData } from '../constants/categoryData';
 import { cardData } from '../constants/cardData';
 import ErrorBoundary from './handler/ErrorBoundary';
+import LocationDisplay from './ui/LocationDisplay';
 
 function LocationPage() {
     const [apiReady, setApiReady] = useState(false);
@@ -84,8 +85,8 @@ function LocationPage() {
                 libraries={['maps3d', 'marker']}
             >
                 <div className='min-h-screen grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2'>
-                    <div>
-                        Content
+                    <div className='size-full p-2 flex flex-col gap-2'>
+                        <LocationDisplay />
                     </div>
 
                     <div className='grid grid-rows-2 p-2 gap-2'>

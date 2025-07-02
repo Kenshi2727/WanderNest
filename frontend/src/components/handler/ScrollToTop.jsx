@@ -5,8 +5,11 @@ export default function ScrollToTop() {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        // Scroll to top when route changes
-        window.scrollTo(0, 0);
+        if (window.lenis) {
+            window.lenis.scrollTo(0, { immediate: true, force: true });
+        } else {
+            window.scrollTo(0, 0);
+        }
     }, [pathname]);
 
     return null;

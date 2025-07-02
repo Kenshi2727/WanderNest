@@ -1,4 +1,6 @@
+import { ArrowUp } from 'lucide-react'
 import React from 'react'
+import { Link } from 'react-scroll'
 
 function Footer() {
     return (
@@ -60,6 +62,17 @@ function Footer() {
                         </a>
                     </div>
                 </nav>
+
+                <Link
+                    to="top"           // 👈 ID of the target element
+                    smooth={true}      // 👈 Enables smooth scrolling
+                    duration={500}     // 👈 Duration in ms
+                >
+                    <button className="bg-base-100 rounded-full text-base-content hover:text-base-100 border hover:border-base-100 hover:bg-neutral active:bg-neutral p-2 shadow-lg transition-colors duration-300 scroll-smooth">
+                        <ArrowUp />
+                    </button>
+                </Link>
+
             </footer>
         </div>
     )
