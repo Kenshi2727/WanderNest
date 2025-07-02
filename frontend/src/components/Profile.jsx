@@ -51,6 +51,7 @@ function Profile() {
                         <div className="relative">
                             <img
                                 // src={selectedImg || authUser.profilePic || "/avatar.png"}
+                                loading='lazy'
                                 src={selectedImg || "/avatar.png"}
                                 alt="Profile"
                                 className="size-32 rounded-full object-cover border-4 "

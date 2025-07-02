@@ -8,7 +8,7 @@ function CategoryListItem({ item }) {
     return (
         <li className="list-row hover:bg-base-200 active:bg-base-200 cursor-pointer">
             <div className="text-4xl font-thin opacity-30 tabular-nums">{item.id}</div>
-            <div><img className="size-20 rounded-box" src={item.imageUrl} /></div>
+            <div><img className="size-20 rounded-box" loading='lazy' src={item.imageUrl} /></div>
             <div className="list-col-grow">
                 <div>{item.name}</div>
                 <div className="text-xs uppercase font-semibold opacity-60">{item.description}</div>

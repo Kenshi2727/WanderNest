@@ -44,6 +44,7 @@ function LocationCarousel() {
                             src={src}
                             alt={`Slide ${idx + 1}`}
                             className="w-full h-full object-cover rounded-xl"
+                            loading='lazy'
                         />
                     </div>
                 ))}
