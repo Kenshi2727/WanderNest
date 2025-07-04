@@ -17,34 +17,6 @@ import LocationPage from './components/LocationPage';
 import Navigator from './components/navigation/Navigator';
 import Lenis from 'lenis';
 
-// Initialize Lenis globally
-const lenis = new Lenis({
-  // lerp: 0.1,
-  // smoothWheel: true,
-  // smoothTouch: true,
-  // anchors: true,
-
-  smooth: true,           // Enable smooth scrolling
-  lerp: 0.05,             // Lower → softer, more buttery feel (default 0.1) :contentReference[oaicite:1]{index=1}
-  wheelMultiplier: 1.2,   // Slightly amplify mouse wheel speed for responsiveness :contentReference[oaicite:2]{index=2}
-  smoothWheel: true,      // Smooth wheel input
-  smoothTouch: true,      // Also smooth on touch devices
-  duration: 1.2,          // Animation duration (ignored when lerp set, but harmless) :contentReference[oaicite:3]{index=3}
-  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Default easing curve :contentReference[oaicite:4]{index=4}
-  anchors: true,          // Smooth scroll for anchor links
-  autoResize: true        // Keep size in sync when layout changes
-});
-
-// Use requestAnimationFrame to continuously update the scroll
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);//run the frame function recursively
-}
-requestAnimationFrame(raf);
-
-// attach Lenis to the global window object for ScrollToTop Component
-window.lenis = lenis;
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -83,6 +55,38 @@ const router = createBrowserRouter([
 
 function Root() {
   const { theme, setTheme } = useThemeStore();
+
+  useEffect(() => {
+    // Initialize Lenis globally
+    const lenis = new Lenis({
+      // lerp: 0.1,
+      // smoothWheel: true,
+      // smoothTouch: true,
+      // anchors: true,
+
+      smooth: true,           // Enable smooth scrolling
+      lerp: 0.05,             // Lower → softer, more buttery feel (default 0.1) :contentReference[oaicite:1]{index=1}
+      wheelMultiplier: 1.2,   // Slightly amplify mouse wheel speed for responsiveness :contentReference[oaicite:2]{index=2}
+      smoothWheel: true,      // Smooth wheel input
+      smoothTouch: true,      // Also smooth on touch devices
+      duration: 1.2,          // Animation duration (ignored when lerp set, but harmless) :contentReference[oaicite:3]{index=3}
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Default easing curve :contentReference[oaicite:4]{index=4}
+      anchors: true,          // Smooth scroll for anchor links
+      autoResize: true        // Keep size in sync when layout changes
+    });
+
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);//run the frame function recursively
+    }
+    requestAnimationFrame(raf);
+
+    // attach Lenis to the global window object for ScrollToTop Component
+    window.lenis = lenis;
+
+  }, []);
+
 
   useEffect(() => {
     setTheme(theme);
