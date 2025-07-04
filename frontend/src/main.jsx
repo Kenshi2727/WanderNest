@@ -85,6 +85,14 @@ function Root() {
     // attach Lenis to the global window object for ScrollToTop Component
     window.lenis = lenis;
 
+    return () => {
+      // cancel the animation frame on unmount
+      cancelAnimationFrame(id);
+      // destroy the Lenis instance to free up event listeners
+      lenisRef.current?.destroy();
+      delete window.lenis;
+    };
+
   }, []);
 
 
