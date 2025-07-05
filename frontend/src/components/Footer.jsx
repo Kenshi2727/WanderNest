@@ -66,9 +66,9 @@ function Footer() {
                 <Link
                     to="top"           // 👈 ID of the target element
                     smooth={true}      // 👈 Enables smooth scrolling
-                    duration={500}     // 👈 Duration in ms
+                    duration={1000}     // 👈 Duration in ms
                 >
-                    <button className="bg-base-100 rounded-full text-base-content hover:text-base-100 border hover:border-base-100 hover:bg-neutral active:bg-neutral p-2 shadow-lg transition-colors duration-300 scroll-smooth">
+                    <button className="bg-base-100 rounded-full text-base-content hover:text-base-100 border hover:border-base-100 hover:bg-neutral active:bg-neutral p-2 shadow-lg transition-colors duration-300 cursor-pointer">
                         <ArrowUp />
                     </button>
                 </Link>

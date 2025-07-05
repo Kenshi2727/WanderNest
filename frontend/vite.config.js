@@ -22,8 +22,8 @@ export default defineConfig({
     injectRegister: false,
 
     pwaAssets: {
-      disabled: false,
-      config: true,
+      disabled: true, // Disable automatic asset generation
+      config: false, // Disable config generation
     },
 
     manifest: {
@@ -63,6 +63,20 @@ export default defineConfig({
 
     injectManifest: {
       globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024 // allow up to 10 MB
+    },
+
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg|webp)$/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'images',
+            expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 } // 30 days
+          }
+        }
+      ]
     },
 
     devOptions: {
