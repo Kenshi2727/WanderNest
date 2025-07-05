@@ -24,7 +24,6 @@
     "react-router-dom": "^7.6.2",
     "react-scroll": "^1.9.3",
     "tailwindcss": "^4.1.10",
-    "vite-plugin-image-optimizer": "^2.0.2",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
@@ -39,8 +38,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "sharp": "^0.34.2",
-    "sharp-ico": "^0.1.5",
     "svgo": "^4.0.0",
     "vite": "^6.0.11",
     "vite-plugin-pwa": "^0.21.1",
@@ -52,8 +49,7 @@
     "workbox-window": "^7.3.0"
   },
   "optionalDependencies": {
-    "@vite-pwa/assets-generator": "^0.2.6",
-    "sharp": "^0.34.2",
-    "sharp-ico": "^0.1.5"
+    "@img/sharp-win32-x64": "^0.34.2",
+    "@vite-pwa/assets-generator": "^0.2.6"
   }
 }
