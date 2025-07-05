@@ -26,8 +26,8 @@ export default defineConfig({
     },
 
     manifest: {
-      name: ' Travel Safari',
-      short_name: ' Travel Safari',
+      name: ' WanderNest',
+      short_name: ' WanderNest',
       description: 'An AI Travel Planner',
       theme_color: '#ffffff',
       icons: [
@@ -62,6 +62,7 @@ export default defineConfig({
 
     injectManifest: {
       globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024 // allow up to 10 MB
     },
 
     devOptions: {
@@ -73,5 +74,6 @@ export default defineConfig({
     optimizeDeps: {
       include: ['lenis'],
     },
-  })],
+  }),
+  ],
 })
