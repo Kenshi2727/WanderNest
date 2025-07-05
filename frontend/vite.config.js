@@ -1,5 +1,6 @@
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import svgr from 'vite-plugin-svgr';
@@ -73,5 +74,47 @@ export default defineConfig({
     optimizeDeps: {
       include: ['lenis'],
     },
-  })],
+  }),
+  ViteImageOptimizer({
+    // Include all common image formats
+    test: /\.(jpe?g|png|gif|tiff|webp|avif|svg)$/i,
+
+    // Optimize images in /public as well
+    includePublic: true,
+
+    // Show stats in console (can disable if noisy)
+    logStats: true,
+
+    // Raster images with Sharp
+    png: { quality: 80 },
+    jpeg: { quality: 75 },
+    jpg: { quality: 75 },
+    webp: { quality: 80, lossless: false },
+    avif: { quality: 70, lossless: false },
+    tiff: { quality: 80 },
+    gif: {},
+
+    // SVG optimization with SVGO
+    svg: {
+      multipass: true,
+      plugins: [
+        { name: 'removeViewBox', active: false },  // preserve viewBox
+        'sortAttrs',                                 // sort SVG attributes
+        {
+          name: 'preset-default',
+          params: {
+            overrides: {
+              cleanupNumericValues: false,
+              convertPathData: false
+            }
+          }
+        }
+      ]
+    },
+
+    // Optional caching to speed up repeated builds
+    cache: true,
+    cacheLocation: 'node_modules/.cache/image-optimizer',
+  }),
+  ],
 })
