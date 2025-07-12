@@ -42,7 +42,7 @@ function SignUp() {
                     </div>
 
 
-                    <button className="btn btn-neutral mt-4">Login</button>
+                    <button className="btn btn-neutral mt-4">Create your Account !</button>
                 </fieldset>
             </div>
             <div className='size-full'>

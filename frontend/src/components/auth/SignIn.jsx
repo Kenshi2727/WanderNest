@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 
 function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
@@ -43,6 +43,12 @@ function SignIn() {
 
 
                     <button className="btn btn-neutral mt-4">Login</button>
+
+                    <div className="divider">OR</div>
+
+                    <Link className='btn btn-neutral btn-outline' to="/auth/sign-up">
+                        <p>Create an account</p>
+                    </Link>
                 </fieldset>
             </div>
             <div className='size-full'>
